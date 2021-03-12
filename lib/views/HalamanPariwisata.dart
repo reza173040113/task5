@@ -106,7 +106,7 @@ class ItemList extends StatelessWidget {
           Container(
             color: Color.fromARGB(100, 239,227,212),
             margin: EdgeInsets.only(bottom: 10),
-            height: 150,
+            height: 170,
             child: Expanded(
               child: ListView(
                 scrollDirection: Axis.horizontal,
@@ -118,27 +118,31 @@ class ItemList extends StatelessWidget {
                         return HalamanDetailDalamNegeri();
                       }));
                     },
-                    child: Container(
-                      margin: EdgeInsets.only(right: 10, left: 10),
-                      width: 165,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(110),
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage("img/monas.png")),
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 5,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            blurRadius: 4,
-                            offset: Offset(4, 8), // Shadow position
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(right: 10, left: 10),
+                          width: 165,
+                          height: 150,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(110),
+                            image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: AssetImage("img/monas.png")),
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 5,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                blurRadius: 4,
+                                offset: Offset(4, 8), // Shadow position
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   GestureDetector(
