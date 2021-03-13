@@ -152,26 +152,30 @@ class ItemList extends StatelessWidget {
                         return HalamanDetailLuarNegeri();
                       }));
                     },
-                    child: Container(
-                      margin: EdgeInsets.only(right: 10),
-                      width: 165,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(110),
-                        image: DecorationImage(
-                            image: AssetImage("img/liberty.png")),
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 5,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            blurRadius: 4,
-                            offset: Offset(4, 8), // Shadow position
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(right: 10),
+                          width: 165,
+                          height: 150,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(110),
+                            image: DecorationImage(
+                                image: AssetImage("img/liberty.png")),
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 5,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                blurRadius: 4,
+                                offset: Offset(4, 8), // Shadow position
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   )
                 ],

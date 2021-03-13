@@ -1,7 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:task5/views/HalamanHewan.dart';
 
 import 'HalamanPariwisata.dart';
+import 'HalamanProfile.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -19,8 +21,8 @@ class _HalamanHomeState extends State<HalamanHome> {
   int _selectedIndex = 0;
   final _widgetOptions = [
     HalamanPariwisata(),
-    HalamanPariwisata(),
-    HalamanPariwisata(),
+    HalamanHewan(),
+    HalamanProfile(),
   ];
 
   @override

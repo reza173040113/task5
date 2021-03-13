@@ -1,9 +1,16 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task5/views/HalamanLogin.dart';
+import 'package:task5/views/onboarding/screen_one.dart';
 
-void main() {
+int initScreen;
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  initScreen = await preferences.getInt('initScreen');
+  await preferences.setInt('initScreen', 1);
   runApp(MyApp());
 }
 
@@ -14,7 +21,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-      routes: {'login': (context) => HalamanLogin()},
+      initialRoute: initScreen == 0 || initScreen == null ? 'onboarding' : 'login',
+      routes: {
+        'onboarding': (context) => OnboardingScreenOne(),
+        'login': (context) => HalamanLogin()
+      },
     );
   }
 }
@@ -27,7 +38,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void startTime() {
     Timer(Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacementNamed('login');
+      Navigator.of(context).pushReplacementNamed('onboarding');
     });
   }
 

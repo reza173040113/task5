@@ -5,8 +5,24 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'HalamanHome.dart';
+import 'HalamanProfile.dart';
 import 'HalamanRegister.dart';
-
+String username='';
+class MyApp extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Halaman Login',     
+      home: new HalamanLogin(),
+      routes: <String,WidgetBuilder>{
+        '/Profile': (BuildContext context)=> new HalamanProfile(username: username),
+        
+      },
+    );
+  }
+}
 class HalamanLogin extends StatefulWidget {
   @override
   _HalamanLoginState createState() => _HalamanLoginState();
