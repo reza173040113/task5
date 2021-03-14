@@ -24,6 +24,14 @@ Future<void> main() async {
   //lah kumat lagi lol
   //habis on boarding soalnya g masuk ke login oh gtu
   // emg skrg ga bisa jg? oh emang ya? :v
+  //sebelumnya udah belajar android? ini baru2 mulai kak.. kalo dulu belajarnya native//kotlin brati kan //kotlin baru juga ini
+  //jadi mksd ny nativ ap?yang java kak mksdnya wkwk ooh kotlin juga native sebutannya
+  //udah kan kak? wahh udah kak alhamdulillah makasih banyak ya kak maaf mengganggu waktunya 2 hari ini wkwk
+  // gpp woles... nambah pengalaman saya juga
+  //wassalam ny harus lewat situ sih? gtw kak setiap saya login pake form yg awal padahal udah bener tetep aja gagal
+  //mksd ny,, g bsa lewat vscode ny aj? iya kak karna belum login g
+  //siap kak sekali lagi makasih yaa// oke sama2
+  //kok git
 }
 
 class MyApp extends StatelessWidget {
