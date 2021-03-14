@@ -6,6 +6,8 @@ import 'package:task5/OnBoardingScreen.dart';
 
 
 class SplashScreen extends StatefulWidget {
+  int initScreen;
+  SplashScreen({this.initScreen});
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -14,8 +16,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void startTime() {
     Timer(Duration(seconds: 3), () {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return OnBoardingScreen();
-      }));
+        return OnBoardingScreen(initScreen: widget.initScreen);
+      }));//ga usah
     });
   }
 

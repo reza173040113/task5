@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -8,6 +10,7 @@ import 'HalamanHome.dart';
 import 'HalamanProfile.dart';
 import 'HalamanRegister.dart';
 String username='';
+enum StatusLogin { signIn, notSignIn }
 class MyApp extends StatelessWidget {
   
   @override
@@ -16,10 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Halaman Login',     
       home: new HalamanLogin(),
-      routes: <String,WidgetBuilder>{
-        '/Profile': (BuildContext context)=> new HalamanProfile(username: username),
-        
-      },
+     
     );
   }
 }
@@ -27,11 +27,11 @@ class HalamanLogin extends StatefulWidget {
   @override
   _HalamanLoginState createState() => _HalamanLoginState();
 }
+//apa bikin yg logout dulu kak? soalnya kalo udah login pasti tetep gituyaudah, mana tombol logout nyaya
 
-enum statusLogin { signIn, notSignIn }
 
 class _HalamanLoginState extends State<HalamanLogin> {
-  statusLogin _loginStatus = statusLogin.notSignIn;
+  StatusLogin _loginStatus = StatusLogin.notSignIn;
   final _keyForm = GlobalKey<FormState>();
   String nUsername, nPassword;
 
@@ -50,10 +50,12 @@ class _HalamanLoginState extends State<HalamanLogin> {
       "username": nUsername,
       "password": nPassword,
     });
+    print(responseData.body);
     final data = jsonDecode(responseData.body);
     int value = data['value'];
     String pesan = data['message'];
     print(data);
+    //kok langsung login//buka file login mba//ternyata d php nya
 // get data respon
     String dataUsername = data['username'];
     String dataEmail = data['email'];
@@ -62,11 +64,14 @@ class _HalamanLoginState extends State<HalamanLogin> {
     String dataFullname = data['full_name'];
     String dataTanggalDaftar = data['tgl_daftar'];
     String dataIdUser = data['id_user'];
+    //di php ny ga di kirim id_user ny, makanya null
+    print(dataIdUser);
 // cek value 1 atau 0
+//nuka d vscode
     if (value == 1) {
       setState(() {
 // set status loginnya sebagai login
-        _loginStatus = statusLogin.signIn;
+        _loginStatus = StatusLogin.signIn;
 // simpan data ke share preferences
         saveDataPref(value, dataIdUser, dataUsername, dataEmail, dataAlamat,
             dataSex, dataFullname, dataTanggalDaftar);
@@ -81,17 +86,18 @@ class _HalamanLoginState extends State<HalamanLogin> {
 // method untuk soimpan share pref
   saveDataPref(int value, String dIdUser, dUsername, dEmail, dAlamat, dSex,
       dFullName, dCreated) async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    setState(() {
-      sharedPreferences.setInt("value", value);
-      sharedPreferences.setString("username", dUsername);
-      sharedPreferences.setString("id_user", dIdUser);
-      sharedPreferences.setString("email", dEmail);
-      sharedPreferences.setString("alamat", dAlamat);
-      sharedPreferences.setString("sex", dSex);
-      sharedPreferences.setString("full_name", dFullName);
-      sharedPreferences.setString("tgl_daftar", dCreated);
-    });
+    Future<SharedPreferences> _sharedPreferences = SharedPreferences.getInstance();
+    SharedPreferences sharedPreferences = await _sharedPreferences;
+    // setState(() {
+      await sharedPreferences.setInt("value", value);
+      await sharedPreferences.setString("username", dUsername);
+      await sharedPreferences.setString("id_user", dIdUser);
+      await sharedPreferences.setString("email", dEmail);
+      await sharedPreferences.setString("alamat", dAlamat);
+      await sharedPreferences.setString("sex", dSex);
+      await sharedPreferences.setString("full_name", dFullName);
+      await sharedPreferences.setString("tgl_daftar", dCreated);
+    // });
   }
 
   ///
@@ -103,7 +109,7 @@ class _HalamanLoginState extends State<HalamanLogin> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     setState(() {
       int nvalue = sharedPreferences.getInt("value");
-      _loginStatus = nvalue == 1 ? statusLogin.signIn : statusLogin.notSignIn;
+      _loginStatus = nvalue == 1 ? StatusLogin.signIn : StatusLogin.notSignIn;
     });
   }
 
@@ -119,13 +125,14 @@ class _HalamanLoginState extends State<HalamanLogin> {
     setState(() {
       sharedPreferences.setInt("value", null);
       sharedPreferences.commit();
-      _loginStatus = statusLogin.notSignIn;
+      _loginStatus = StatusLogin.notSignIn;
     });
   }
 
   Widget build(BuildContext context) {
+    log("Login Status : ${_loginStatus.toString()}");
     switch (_loginStatus) {
-      case statusLogin.notSignIn:
+      case StatusLogin.notSignIn:
         return Scaffold(
           backgroundColor: Colors.white,
           body: Form(
@@ -214,8 +221,9 @@ class _HalamanLoginState extends State<HalamanLogin> {
           ),
         );
         break;
-      case statusLogin.signIn:
-        return HalamanHome();
+        //kyk ny masalah d halaman login, ,mungkin status login nya signIn terus, jadi kesini terus
+      case StatusLogin.signIn:
+        return HalamanHome(statusLogin : _loginStatus);
         break;
     }
   }

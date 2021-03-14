@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:task5/views/constants/constants.dart';
 import 'package:task5/views/onboarding/screen_three.dart';
 
+import '../HalamanHome.dart';
 import 'components/slanding_clipper.dart';
 
 class OnboardingScreenTwo extends StatelessWidget {
@@ -31,7 +32,7 @@ class OnboardingScreenTwo extends StatelessWidget {
                   width: size.width,
                   height: size.height * 0.6,
                   fit: BoxFit.cover,
-                  image: AssetImage('img/liberty.png'),
+                  image: AssetImage('img/2.png'),
                 ),
               ],
             ),
@@ -44,7 +45,7 @@ class OnboardingScreenTwo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'PURCHASE',
+                      'Keunggulan',
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -56,10 +57,10 @@ class OnboardingScreenTwo extends StatelessWidget {
                       height: size.height * 0.02,
                     ),
                     Text(
-                      'Lorem Ipsum is simply dummy \ntext of the printing and typesetting industry.',
+                      'Dia selalu berusaha melakukan yang terbaik disetiap tugasnya',
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18,color: white
                       ),
                     ),
                   ],
@@ -112,7 +113,10 @@ class OnboardingScreenTwo extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerRight,
                     child: FlatButton(
-                      onPressed: () => print('Skip'),
+                      onPressed: (){ Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return HalamanHome();
+                      }));},
                       child: Text(
                         'Skip',
                         style: TextStyle(

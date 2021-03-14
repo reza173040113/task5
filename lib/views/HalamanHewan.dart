@@ -71,10 +71,10 @@ class ItemList extends StatelessWidget {
             "Nama Hewan",
             style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
           ),
-          Container(
-            margin: EdgeInsets.only(bottom: 10),
-            height: 150,
-            child: Expanded(
+          Expanded(
+                      child: Container(
+              margin: EdgeInsets.only(bottom: 10),
+              height: 150,
               child: new ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: list == null ? 0 : list.length,
@@ -117,11 +117,11 @@ class ItemList extends StatelessWidget {
             "Kategori",
             style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
           ),
-          Container(
-            color: Color.fromARGB(100, 239, 227, 212),
-            margin: EdgeInsets.only(bottom: 10),
-            height: 170,
-            child: Expanded(
+          Expanded(
+                      child: Container(
+              color: Color.fromARGB(100, 239, 227, 212),
+              margin: EdgeInsets.only(bottom: 10),
+              height: 170,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [

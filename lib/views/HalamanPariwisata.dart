@@ -10,6 +10,10 @@ class HalamanPariwisata extends StatefulWidget {
   @override
   _HalamanPariwisataState createState() => _HalamanPariwisataState();
 }
+//sebelum mulai udh commit kan revert aja dulu, kan kita dah tau eror ny dmn
+//aduh belum kak terakhir yg kmrin aja sebelum sama kaka kynya saya commitnya
+//hmm ya makanya harus sering cmmit kalo dah ad yg rasa nya solved
+//
 
 class _HalamanPariwisataState extends State<HalamanPariwisata> {
   Future<List> getData() async {
@@ -19,6 +23,8 @@ class _HalamanPariwisataState extends State<HalamanPariwisata> {
       return json.decode(response.body);
     }
   }
+//kok jadi ada dua gitu
+//nah itu kurang tau kak
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +44,7 @@ class _HalamanPariwisataState extends State<HalamanPariwisata> {
         ));
   }
 }
+//sebentar kak mouse saya errorok
 
 class ItemList extends StatelessWidget {
   final List list;
@@ -52,11 +59,11 @@ class ItemList extends StatelessWidget {
               margin: EdgeInsets.all(10),
               child: Text(
                 "Destinasi Favourite",
-                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 19),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
               )),
-          Container(
-            height: 150,
-            child: Expanded(
+          Expanded(
+            child: Container(
+              height: 150,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: list.length,
@@ -102,12 +109,12 @@ class ItemList extends StatelessWidget {
           Container(
               margin: EdgeInsets.all(10),
               child: Text("Kategori",
-                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 19))),
-          Container(
-            color: Color.fromARGB(100, 239,227,212),
-            margin: EdgeInsets.only(bottom: 10),
-            height: 170,
-            child: Expanded(
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19))),
+          Expanded(
+            child: Container(
+              color: Color.fromARGB(100, 239, 227, 212),
+              margin: EdgeInsets.only(bottom: 10),
+              height: 170,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -120,26 +127,28 @@ class ItemList extends StatelessWidget {
                     },
                     child: Column(
                       children: [
-                        Container(
-                          margin: EdgeInsets.only(right: 10, left: 10),
-                          width: 165,
-                          height: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(110),
-                            image: DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage("img/monas.png")),
-                            border: Border.all(
-                              color: Colors.white,
-                              width: 5,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                blurRadius: 4,
-                                offset: Offset(4, 8), // Shadow position
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 10, left: 10),
+                            width: 165,
+                            height: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(110),
+                              image: DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: AssetImage("img/monas.png")),
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 5,
                               ),
-                            ],
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  blurRadius: 4,
+                                  offset: Offset(4, 8), // Shadow position
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -154,25 +163,27 @@ class ItemList extends StatelessWidget {
                     },
                     child: Column(
                       children: [
-                        Container(
-                          margin: EdgeInsets.only(right: 10),
-                          width: 165,
-                          height: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(110),
-                            image: DecorationImage(
-                                image: AssetImage("img/liberty.png")),
-                            border: Border.all(
-                              color: Colors.white,
-                              width: 5,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                blurRadius: 4,
-                                offset: Offset(4, 8), // Shadow position
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 10),
+                            width: 165,
+                            height: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(110),
+                              image: DecorationImage(
+                                  image: AssetImage("img/liberty.png")),
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 5,
                               ),
-                            ],
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  blurRadius: 4,
+                                  offset: Offset(4, 8), // Shadow position
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -185,39 +196,46 @@ class ItemList extends StatelessWidget {
           Container(
               margin: EdgeInsets.all(10),
               child: Text("List Data",
-                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 19))),
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 19))),
           Expanded(
-            child: ListView.builder(
-              itemCount: list.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return DetailBerita(list, index);
-                      }));
-                    },
-                    child: Card(
-                      child: ListTile(
-                        title: Text(
-                          list[index]['nama'],
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.brown),
-                        ),
-                        subtitle: Text("Asal : ${list[index]['asal']}"),
-                        trailing: Image.network(
-                          'http://192.168.18.4/flutter-server/' +
-                              list[index]['gambar'],
-                          fit: BoxFit.cover,
-                          width: 60.0,
-                          height: 60.0,
+            child: Container(
+              color: Color.fromARGB(100, 239, 227, 212),
+              margin: EdgeInsets.only(bottom: 10),
+              height: 170,
+              child: ListView.builder(
+                itemCount: list.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DetailBerita(list, index);
+                        }));
+                      },
+                      child: Card(
+                        child: ListTile(
+                          title: Text(
+                            list[index]['nama'],
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.brown),
+                          ),
+                          subtitle: Text("Asal : ${list[index]['asal']}"),
+                          trailing: Image.network(
+                            'http://192.168.18.4/flutter-server/' +
+                                list[index]['gambar'],
+                            fit: BoxFit.cover,
+                            width: 60.0,
+                            height: 60.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ],

@@ -22,7 +22,7 @@ class OnboardingScreenThree extends StatelessWidget {
                   width: size.width,
                   height: size.height * 0.6,
                   fit: BoxFit.cover,
-                  image: AssetImage('img/monas.png'),
+                  image: AssetImage('img/idea.png'),
                 ),
                 Transform(
                   alignment: Alignment.center,
@@ -46,7 +46,7 @@ class OnboardingScreenThree extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'DELIVERY',
+                      'IDEA',
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -58,10 +58,10 @@ class OnboardingScreenThree extends StatelessWidget {
                       height: size.height * 0.02,
                     ),
                     Text(
-                      'Lorem Ipsum is simply dummy \ntext of the printing and typesetting industry.',
+                      'Ide nya dia miliki selalu saja bisa membuat orang disekitarnya kagum dengan dirinya.',
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18,color: white
                       ),
                     ),
                   ],
@@ -114,7 +114,12 @@ class OnboardingScreenThree extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerRight,
                     child: FlatButton(
-                      onPressed: () => print('Skip'),
+                      onPressed: () {
+                         Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return HalamanHome();
+                      }));
+                      },
                       child: Text(
                         'Skip',
                         style: TextStyle(
