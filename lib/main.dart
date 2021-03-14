@@ -16,6 +16,7 @@ Future<void> main() async {
   runApp(MyApp());
   //kan udah tu kak
   //coba saya uninstall dulu kak bentarok
+  //asdasdadsdawkkw
   //gitu kan kak?atau bagaimana?
   //wifi masih sama?//masih//kan yg lain masih aman juga kak
   //coba main nya satu aja dari sini, bisa ga
