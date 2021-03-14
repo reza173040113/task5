@@ -188,6 +188,7 @@ class _ItemListState extends State<ItemList> {
               var session = await _prefs;
                 session.clear();
                 // session.setBool('isOnBoarding',true);
+                await session.setInt('initScreen', 1);
                 Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
                         return HalamanLogin();

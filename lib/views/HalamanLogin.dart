@@ -115,8 +115,8 @@ class _HalamanLoginState extends State<HalamanLogin> {
 
   @override
   void initState() {
-    getDataPref();
-    super.initState();
+    getDataPref();//oke kak, skrg baru tes onboarding cmn skali
+    super.initState();//aneh// iya wkwkwhahaha aa yg d ubah//saya commit dulu kak//iya, tadi kak//ga ada prasaan cuman ganti log doang :v//haha adeh ad2 wae
   }
 
 //method untuk sign out

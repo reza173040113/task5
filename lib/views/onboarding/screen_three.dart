@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:task5/views/HalamanLogin.dart';
 import 'package:task5/views/constants/constants.dart';
 import 'dart:math' as math;
 
@@ -117,7 +118,7 @@ class OnboardingScreenThree extends StatelessWidget {
                       onPressed: () {
                          Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return HalamanHome();
+                        return HalamanLogin();
                       }));
                       },
                       child: Text(
@@ -135,7 +136,7 @@ class OnboardingScreenThree extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return HalamanHome();
+                        return HalamanLogin();
                       }));
                       },
                       backgroundColor: white,

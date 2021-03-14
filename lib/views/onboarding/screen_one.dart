@@ -4,6 +4,7 @@ import 'package:task5/views/constants/constants.dart';
 import 'package:task5/views/onboarding/screen_two.dart';
 
 import '../HalamanHome.dart';
+import '../HalamanLogin.dart';
 import 'components/slanding_clipper.dart';
 
 class OnboardingScreenOne extends StatelessWidget {
@@ -105,7 +106,7 @@ class OnboardingScreenOne extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: appPadding * 2),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,//kena
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
@@ -113,7 +114,7 @@ class OnboardingScreenOne extends StatelessWidget {
                     child: FlatButton(
                       onPressed: (){ Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return HalamanHome();
+                        return HalamanLogin();
                       }));},
                       child: Text(
                         'Skip',

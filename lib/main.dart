@@ -14,12 +14,23 @@ Future<void> main() async {
   initScreen = await preferences.getInt('initScreen');
   await preferences.setInt('initScreen', 1);
   runApp(MyApp());
+  //kan udah tu kak
+  //coba saya uninstall dulu kak bentarok
   //wifi masih sama?//masih//kan yg lain masih aman juga kak
   //coba main nya satu aja dari sini, bisa ga
+  //build apk aja apa ya ka? // mksd ny
+  //iya kan waktu itu saya g berhasil2 install trs sama kak yusmi dibantu buat build apk kak trs jadi bisa.
+  //prsaan waktu itu sama saya dah hhaha 
+  //lah kumat lagi lol
+  //habis on boarding soalnya g masuk ke login oh gtu
+  // emg skrg ga bisa jg? oh emang ya? :v
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  //insyaallah lulus tahun ini kak//unpas y?iya kak..kak masih kuliah atau gimana?// saya dah lulus tahun kmren, tapi saya d3//oh iya kak siap siap..asli mana ka?
+  //tinggal dulunya di jambi,, tapi ortu org minang//wah sama dong wkwk//kaka org jambi?/ /wkwkwkorang padang maksudnya
+  //oooh d mana tu kmpung?//di batusangkar padang luar/// oohhh ituuu... ga tau saya wkwkwk..yah wkwkwk
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

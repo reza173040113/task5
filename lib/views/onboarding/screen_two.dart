@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:task5/views/HalamanLogin.dart';
 import 'package:task5/views/constants/constants.dart';
 import 'package:task5/views/onboarding/screen_three.dart';
 
@@ -115,7 +116,7 @@ class OnboardingScreenTwo extends StatelessWidget {
                     child: FlatButton(
                       onPressed: (){ Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return HalamanHome();
+                        return HalamanLogin();
                       }));},
                       child: Text(
                         'Skip',
