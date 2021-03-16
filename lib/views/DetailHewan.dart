@@ -13,7 +13,7 @@ class DetailHewan extends StatefulWidget {
 
 class _DetailHewanState extends State<DetailHewan> {
   void deletedata() {
-    var url = "http://192.168.18.4/flutter-server/deleteHewan.php";
+    var url = "http://inisialer.000webhostapp.com/deleteHewan.php";
     http.post(url, body: {'id_hewan': widget.list[widget.index]['id_hewan']});
   }
 
@@ -58,60 +58,78 @@ class _DetailHewanState extends State<DetailHewan> {
           new Container(
             padding: const EdgeInsets.all(10.0),
             height: 500.0,
-            child: Row(
+            child: Column(
               children: <Widget>[
                 new Expanded(
-                    child: Card(
-                  child: new Column(
-                    children: <Widget>[
-                      new Padding(padding: const EdgeInsets.only(top: 30.0)),
-                      new Text(
-                        widget.list[widget.index]['nama'],
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      new Text(
-                        widget.list[widget.index]['jenis'],
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      new Text(
-                        widget.list[widget.index]['deskripsi'],
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      new Padding(padding: const EdgeInsets.only(top: 30.0)),
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new RaisedButton(
-                            child: new Text('Edit'),
-                            color: Colors.yellow[500],
-                            onPressed: () => Navigator.of(context)
-                                .push(new MaterialPageRoute(
-                              builder: (BuildContext context) => new EditHewan(
-                                  list: widget.list, index: widget.index),
-                            )),
+                  child: Card(
+                    child: new Column(
+                      children: <Widget>[
+                        new Padding(padding: const EdgeInsets.only(top: 30.0)),
+                        Container(
+                          padding: EdgeInsets.all(32.0),
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      padding: EdgeInsets.only(bottom: 8.0),
+                                      child: Text(
+                                        widget.list[widget.index]['nama'],
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.brown),
+                                      ),
+                                    ),
+                                    Text(widget.list[widget.index]['jenis'])
+                                  ],
+                                ),
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.brown,
+                              )
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(32.0),
+                          child: Text(
+                            widget.list[widget.index]['deskripsi'],
+                            softWrap: true,
                           ),
-                          new RaisedButton(
-                            child: new Text('Delete',style: TextStyle(color: Colors.white),),
-                            color: Colors.red,
-                            onPressed: () => confirm(),
-                          ),
-                        ],
-                      )
-                    ],
+                        ),
+                        new Padding(padding: const EdgeInsets.only(top: 30.0)),
+                      ],
+                    ),
                   ),
-                ))
+                ),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new RaisedButton(
+                      child: new Text('Edit'),
+                      color: Colors.yellow[500],
+                      onPressed: () =>
+                          Navigator.of(context).push(new MaterialPageRoute(
+                        builder: (BuildContext context) => new EditHewan(
+                            list: widget.list, index: widget.index),
+                      )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                    ),
+                    new RaisedButton(
+                      child: new Text(
+                        'Delete',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      color: Colors.red,
+                      onPressed: () => confirm(),
+                    ),
+                  ],
+                )
               ],
             ),
           )

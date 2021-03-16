@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:task5/views/AddHewan.dart';
 import 'package:task5/views/DetailHewan.dart';
 
+import 'HalamanHewan.dart';
+
 class Karnivora extends StatefulWidget {
   @override
   _KarnivoraState createState() => _KarnivoraState();
@@ -12,7 +14,7 @@ class Karnivora extends StatefulWidget {
 class _KarnivoraState extends State<Karnivora> {
   Future<List> getData() async {
     final response =
-        await http.get("http://192.168.18.4/flutter-server/detailKarnivora.php");
+        await http.get("http://inisialer.000webhostapp.com/detailKarnivora.php");//ganti dengan url yang barusan disamakan aja endpoint nya kak//oke kak saya coba yaa
     return json.decode(response.body);
   }
 
@@ -24,16 +26,16 @@ class _KarnivoraState extends State<Karnivora> {
         appBar: new AppBar(
           title: Text("Karnivora"),
           backgroundColor: Colors.brown,
+           actions: [
+            GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(new MaterialPageRoute(
+                      builder: (BuildContext context) => new HalamanHewan()));
+                },
+                child: Center(child: Text("Back"))),
+          ],
         ),
-        floatingActionButton: new FloatingActionButton(
-            child: new Icon(
-              Icons.add,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => AddHewan()));
-            }),
+       
         body: new FutureBuilder<List>(
           future: getData(),
           builder: (context, snapshot) {

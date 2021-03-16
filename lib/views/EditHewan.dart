@@ -18,7 +18,7 @@ class _EditHewanState extends State<EditHewan> {
   TextEditingController kategoriController;
 
   void editData() {
-    var url = "http://192.168.18.4/flutter-server/editHewan.php";
+    var url = "http://inisialer.000webhostapp.com/editHewan.php";
     http.post(url, body: {
       "id_hewan": widget.list[widget.index]['id_hewan'],
       "nama": namaController.text,
@@ -98,8 +98,8 @@ class _EditHewanState extends State<EditHewan> {
                       color: Colors.brown,
                       onPressed: () {
                         editData();
-                        Navigator.of(context).push(new MaterialPageRoute(
-                            builder: (BuildContext context) => new HalamanHome()));
+                        Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                            builder: (BuildContext context) => new HalamanHewan()));
                       },
                     ),
                   ),

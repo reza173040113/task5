@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:task5/views/AddHewan.dart';
 import 'package:task5/views/DetailHewan.dart';
 
+import 'HalamanHewan.dart';
+
 class Herbivora extends StatefulWidget {
   @override
   _HerbivoraState createState() => _HerbivoraState();
@@ -11,8 +13,8 @@ class Herbivora extends StatefulWidget {
 
 class _HerbivoraState extends State<Herbivora> {
   Future<List> getData() async {
-    final response =
-        await http.get("http://192.168.18.4/flutter-server/detailHerbivora.php");
+    final response = await http
+        .get("http://inisialer.000webhostapp.com/detailHerbivora.php");
     return json.decode(response.body);
   }
 
@@ -24,16 +26,15 @@ class _HerbivoraState extends State<Herbivora> {
         appBar: new AppBar(
           title: Text("Herbivora"),
           backgroundColor: Colors.brown,
+          actions: [
+            GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(new MaterialPageRoute(
+                      builder: (BuildContext context) => new HalamanHewan()));
+                },
+                child: Center(child: Text("Back"))),
+          ],
         ),
-        floatingActionButton: new FloatingActionButton(
-            child: new Icon(
-              Icons.add,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => AddHewan()));
-            }),
         body: new FutureBuilder<List>(
           future: getData(),
           builder: (context, snapshot) {
@@ -82,7 +83,7 @@ class ItemList extends StatelessWidget {
                                   DetailHewan(list: list, index: i)));
                         },
                         child: Container(
-                            margin: EdgeInsets.only(right:10),
+                            margin: EdgeInsets.only(right: 10),
                             width: 100,
                             decoration: BoxDecoration(
                               color: Color.fromARGB(100, 203, 129, 79),
@@ -108,7 +109,6 @@ class ItemList extends StatelessWidget {
                   }),
             ),
           ),
-          
           Text(
             "List Data",
             style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),

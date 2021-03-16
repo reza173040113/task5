@@ -15,7 +15,7 @@ class _AddHewanState extends State<AddHewan> {
   TextEditingController kategoriController = new TextEditingController();
 
   void addData() {
-    var url = "http://192.168.18.4/flutter-server/addHewan.php";
+    var url = "http://inisialer.000webhostapp.com/addHewan.php";
     http.post(url, body: {
       "nama": namaController.text,
       "jenis": jenisController.text,
@@ -81,7 +81,7 @@ class _AddHewanState extends State<AddHewan> {
                         addData();
                         Navigator.of(context).push(new MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                new HalamanHome()));
+                                new HalamanHewan()));
                       },
                     ),
                   ),

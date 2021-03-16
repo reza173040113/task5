@@ -18,6 +18,11 @@ Future<void> main() async {
   //coba saya uninstall dulu kak bentarok
   //asdasdadsdawkkw
   //gitu kan kak?atau bagaimana?
+  //udah bisa kak wkwkw makasih kak//sippp//aku dak ngapa2in ngapain makasih wkwk
+  //hahaha gpp kak okok//tutuo lah kak//aduh g enak dong kaka aja yg tutup 
+  //baik, kita sudahi pertemuan kali, ini dengan membaca hamdalah
+  //alhaamdulillah
+  //wassalam wr wb
   //wifi masih sama?//masih//kan yg lain masih aman juga kak
   //coba main nya satu aja dari sini, bisa ga
   //build apk aja apa ya ka? // mksd ny

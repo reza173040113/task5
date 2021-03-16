@@ -16,7 +16,7 @@ class HalamanHewan extends StatefulWidget {
 class _HalamanHewanState extends State<HalamanHewan> {
   Future<List> getData() async {
     final response =
-        await http.get("http://192.168.18.4/flutter-server/getHewan.php");
+        await http.get("http://inisialer.000webhostapp.com/getHewan.php");//gini kak? iya benar//oke kak makasih yaa
     return json.decode(response.body);
   }
 

@@ -4,7 +4,6 @@ import 'package:task5/views/HalamanLogin.dart';
 import 'package:task5/views/constants/constants.dart';
 import 'package:task5/views/onboarding/screen_three.dart';
 
-import '../HalamanHome.dart';
 import 'components/slanding_clipper.dart';
 
 class OnboardingScreenTwo extends StatelessWidget {

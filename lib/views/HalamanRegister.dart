@@ -38,7 +38,7 @@ class _HalamanRegisterState extends State<HalamanRegister> {
 // submit data register
   submitDataRegister() async {
     final responseData = await http
-        .post("http://192.168.18.4/flutter-server/register.php", body: {
+        .post("http://inisialer.000webhostapp.com/register.php", body: {
       "username": nUsername,
       "full_name": nFullName,
       "email": nEmail,
@@ -210,7 +210,7 @@ class _HalamanRegisterState extends State<HalamanRegister> {
             Padding(
               padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0),
               child: MaterialButton(
-                color: Colors.blueGrey,
+                color: Colors.brown,
                 textColor: Colors.white,
                 child: Text('Register'),
                 onPressed: () {

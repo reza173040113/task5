@@ -7,7 +7,6 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'HalamanHome.dart';
-import 'HalamanProfile.dart';
 import 'HalamanRegister.dart';
 String username='';
 enum StatusLogin { signIn, notSignIn }
@@ -46,7 +45,7 @@ class _HalamanLoginState extends State<HalamanLogin> {
 // mengirim request dan menanggapinya
   submitDataLogin() async {
     final responseData =
-        await http.post("http://192.168.18.4/flutter-server/login.php", body: {
+        await http.post("http://inisialer.000webhostapp.com/login.php", body: {
       "username": nUsername,
       "password": nPassword,
     });
@@ -141,7 +140,7 @@ class _HalamanLoginState extends State<HalamanLogin> {
               children: <Widget>[
                 Center(
                   child: Text(
-                    'Login Form',
+                    'Halaman Login',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 26.0,
@@ -193,7 +192,7 @@ class _HalamanLoginState extends State<HalamanLogin> {
                 Padding(
                   padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0),
                   child: MaterialButton(
-                    color: Colors.blueGrey,
+                    color: Colors.brown,
                     textColor: Colors.white,
                     child: Text('Login'),
                     onPressed: () {

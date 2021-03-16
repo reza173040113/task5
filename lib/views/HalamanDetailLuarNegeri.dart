@@ -12,7 +12,7 @@ class HalamanDetailLuarNegeri extends StatefulWidget {
 class _HalamanDetailLuarNegeriState extends State<HalamanDetailLuarNegeri> {
   Future<List> getData() async {
     final response =
-        await http.get("http://192.168.18.4/flutter-server/getLuarNegeri.php");
+        await http.get("http://inisialer.000webhostapp.com/getLuarNegeri.php");
     if (response.body.isNotEmpty) {
       return json.decode(response.body);
     }
@@ -86,7 +86,7 @@ class ItemList extends StatelessWidget {
                       },
                       child: Container(
                         child: Image.network(
-                            'http://192.168.18.4/flutter-server/' +
+                            'http://inisialer.000webhostapp.com/' +
                                 list[index]['gambar'],
                             height: 150,
                             fit: BoxFit.fill),
@@ -122,7 +122,7 @@ class ItemList extends StatelessWidget {
                         ),
                         subtitle: Text("Asal : ${list[index]['asal']}"),
                         trailing: Image.network(
-                          'http://192.168.18.4/flutter-server/' +
+                          'http://inisialer.000webhostapp.com/' +
                               list[index]['gambar'],
                           fit: BoxFit.cover,
                           width: 60.0,
@@ -155,7 +155,7 @@ class DetailBerita extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Image.network(
-              'http://192.168.18.4/flutter-server/' + list[index]['gambar']),
+              'http://inisialer.000webhostapp.com/' + list[index]['gambar']),
           Container(
             padding: EdgeInsets.all(32.0),
             child: Row(
